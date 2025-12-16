@@ -1,0 +1,14 @@
+.main-content {
+    overflow-y: visible !important;
+    height: auto !important;
+}
+
+.footer {
+    position: relative !important;
+}
+
+.alert-danger {
+    border-radius: 10px;
+    padding-top: 0;
+    margin-top: 0;
+}
