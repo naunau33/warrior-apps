@@ -9,18 +9,26 @@ use App\Models\Siswa;
 use Illuminate\Support\Facades\Route;
 use Symfony\Component\HttpKernel\HttpCache\Store;
 
+Route::middleware('guest')->group(function () {
+    
 #register
 Route::get('/register', [AuthController::class, 'showRegister']);
 Route::post('/register/submit', [AuthController::class, 'submitRegister']); 
 
 #login
-Route::get('/', [AuthController::class, 'showLogin']);
+Route::get('/', [AuthController::class, 'showLogin'])->name('login');
 Route::post('/submit', [AuthController::class, 'submitLogin']); 
 
-Route::get('/home', function () {
-    return view('home', ['title' => 'Dashboard']);
+
 });
 
+
+Route::middleware('auth')->group(function () {
+#dashboard
+Route::get('/home', function () {
+    return view('home', ['title' => 'Dashboard']);
+}); 
+    
 #siswas crud
 Route::get('/siswa', [SiswaController::class, 'index']);
 Route::get('/siswa/create', [SiswaController::class, 'create']);
@@ -38,13 +46,10 @@ Route::put('/hafalan/{hafalan}', [HafalanController::class, 'update']);
 Route::get('/hafalan/{hafalan}/edit', [HafalanController::class, 'edit']);
 Route::delete('/hafalan/{hafalan}', [HafalanController::class, 'delete']);
 
-
-
-Route::get('/raport', function () {
-    return view('raport', ['title' => 'Penilaian & Rapor']);
-});
-
-
+#profile crud
 Route::get('/profile', [ProfileController::class, 'index']);
 
+#logout
+Route::get('/logout', [AuthController::class, 'logout']);
+});
 
