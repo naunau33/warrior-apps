@@ -60,15 +60,20 @@
                   </div>
               @endif
 
+      {{-- 
+          RENCANA : bikin alert naik di atas form login
+          ERROR : aku gabung row pake alert & col, ternyata templatenya pake margin negatif
+          
+       --}}
       @if (session('loginError'))
-                  <div class="alert alert-danger alert-dismissible fade show border-0" role="alert">
+                  <div class=" row alert alert-danger alert-dismissible fade show border-0 col-xl-4 col-lg-5 col-md-7 mx-auto" style="margin-top: 20px" role="alert">
                   {{ session('loginError') }}
                   <button type="button" class="btn-close" data-bs-dismiss="alert" data-bs-theme="dark" aria-label="Close"></button>
                   </div>
               @endif
 
 
-    <div class="container">
+    <div class=" login-container">
       <div class="row mt-lg-n10 mt-md-n11 mt-n10 justify-content-center">
         <div class="col-xl-4 col-lg-5 col-md-7 mx-auto">
           <div class="card z-index-0">
