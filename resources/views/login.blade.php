@@ -53,29 +53,26 @@
       </div>
     </div>
 
-      @if (session('success'))
-                  <div class="alert alert-success alert-dismissible fade show border-0" role="alert">
-                  {{ session('success') }}
-                  <button type="button" class="btn-close" data-bs-dismiss="alert" data-bs-theme="dark" aria-label="Close"></button>
-                  </div>
-              @endif
-
-      {{-- 
-          RENCANA : bikin alert naik di atas form login
-          ERROR : aku gabung row pake alert & col, ternyata templatenya pake margin negatif
-          
-       --}}
-      @if (session('loginError'))
-                  <div class=" row alert alert-danger alert-dismissible fade show border-0 col-xl-4 col-lg-5 col-md-7 mx-auto" style="margin-top: 20px" role="alert">
-                  {{ session('loginError') }}
-                  <button type="button" class="btn-close" data-bs-dismiss="alert" data-bs-theme="dark" aria-label="Close"></button>
-                  </div>
-              @endif
 
 
     <div class=" login-container">
       <div class="row mt-lg-n10 mt-md-n11 mt-n10 justify-content-center">
         <div class="col-xl-4 col-lg-5 col-md-7 mx-auto">
+
+       @if (session('success'))
+                  <div class="alert alert-success alert-dismissible fade show border-0" role="alert">
+                  {{ session('success') }}
+                  <button type="button" class="btn-close" data-bs-dismiss="alert" data-bs-theme="dark" aria-label="Close"></button>
+                  </div>
+       @endif
+          
+       @if (session('loginError'))
+                  <div class="alert alert-danger alert-dismissible fade show border-0" role="alert">
+                  {{ session('loginError') }}
+                  <button type="button" class="btn-close" data-bs-dismiss="alert" data-bs-theme="dark" aria-label="Close"></button>
+                  </div>
+       @endif
+
           <div class="card z-index-0">
             <div class="card-header text-center pt-4 pb-1">
               <h5>Sign In to Your Account!</h5>
