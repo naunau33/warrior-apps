@@ -13,16 +13,14 @@
     margin-top: 0;
 }
 
-.login-container  {
+.login-container {
     display: flex;
     flex-direction: column-reverse;
     justify-content: center;
-    
 }
 
-.register-container  {
+.register-container {
     display: flex;
     flex-direction: column-reverse;
     justify-content: center;
-    
 }
