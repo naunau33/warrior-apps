@@ -11,7 +11,7 @@ class HafalanController extends Controller
 {
     public function index()
     {
-        return view('hafalans/index', [
+        return view('hafalans.index', [
             'title' => 'Data Hafalan',
             'hafalans' => Hafalan::with(['siswa', 'surat'])->get()
         ]);

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HafalanController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SiswaController;
@@ -25,9 +26,8 @@ Route::post('/submit', [AuthController::class, 'submitLogin']);
 
 Route::middleware('auth')->group(function () {
 #dashboard
-Route::get('/home', function () {
-    return view('home', ['title' => 'Dashboard']);
-}); 
+Route::get('/home', [DashboardController::class, 'index']);
+
     
 #siswas crud
 Route::get('/siswa', [SiswaController::class, 'index']);
